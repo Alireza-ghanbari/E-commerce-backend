@@ -10,15 +10,7 @@ const isLogin = catchAsync(async (req, res, next) => {
     );
     return next();
   } catch (err) {
-    return next(
-      new HandleError(
-        {
-          en: "you don't have permission",
-          fa: "دسترسی انجام این کار را ندارید",
-        },
-        401
-      )
-    );
+    return next(new HandleError("you don't have permission", 401));
   }
 });
 

@@ -17,7 +17,7 @@ export const getAllUser = catchAsync(async (req, res, next) => {
 
   return res.status(200).json({
     success: true,
-    data: { users },
+    data: users,
     count,
   });
 });
@@ -36,7 +36,7 @@ export const getUser = catchAsync(async (req, res, next) => {
 
   return res.status(200).json({
     success: true,
-    data: { user },
+    data: user,
   });
 });
 
@@ -59,7 +59,7 @@ export const updateUser = catchAsync(async (req, res, next) => {
   return res.status(200).json({
     success: true,
     message: "User updated",
-    data: { user },
+    data: user,
   });
 });
 

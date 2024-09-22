@@ -1,12 +1,13 @@
 import HandleError from "../Utils/handleError.js";
 import catchAsync from "../Utils/catchAsync.js";
 import User from "../Models/user.model.js";
+import bcryptjs from "bcryptjs";
 import jwt from "jsonwebtoken";
 
 export const signup = catchAsync(async (req, res, next) => {
   const { username = null, password = null } = req.body;
 
-  if (password.length < 4) {
+  if (password?.length < 4) {
     return next(new HandleError("must be 4 character at least"));
   }
 
@@ -22,7 +23,7 @@ export const signup = catchAsync(async (req, res, next) => {
 export const signin = catchAsync(async (req, res, next) => {
   const { username, password } = req.body;
   const validUser = await User.findOne({ username });
-  if (!validUser) return next(errorHandler(404, "user not found"));
+  if (!validUser) return next(new HandleError("user not found", 404));
 
   const validPassword = bcryptjs.compareSync(password, validUser.password);
 
