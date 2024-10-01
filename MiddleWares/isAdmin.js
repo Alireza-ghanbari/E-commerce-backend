@@ -1,4 +1,4 @@
-import HandleError from "../Utils/handleError.js";
+import HandleError from "../utils/handleError.js";
 import catchAsync from "../Utils/catchAsync.js";
 import jwt from "jsonwebtoken";
 
