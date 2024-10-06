@@ -1,4 +1,4 @@
-import HandleError from "../Utils/handleError.js";
+import HandleError from "../utils/handleError.js";
 import catchAsync from "../Utils/catchAsync.js";
 import User from "../Models/user.model.js";
 import bcryptjs from "bcryptjs";
